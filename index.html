@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fais CV - Professional Resume</title>
+    <style>
+        /* Just some basic styles for the body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;  /* Dark bg for that neon vibe */
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Container to keep things centered */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);  /* A little glow effect */
+        }
+
+        /* Neon text for headers */
+        .neon-text {
+            color: #00ffff;  /* Cyan color */
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+        }
+
+        .neon-header {
+            color: #ff00ff;  /* Magenta for section headers */
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+        }
+
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #00ffff;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background-color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00ff00;  /* Green glow for skills */
+        }
+
+        .profile-pic {
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            box-shadow: 0 0 20px #00ffff;  /* Glow on the pic */
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #1e1e1e;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            font-size: 1.2em;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+
+            .navbar a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar added here -->
+    <nav class="navbar">
+        <a href="#summary">Summary</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#languages">Languages</a>
+    </nav>
+
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150?text=Fais" alt="Profile Picture of Fais" class="profile-pic">
+            <h1 class="neon-text">Fais</h1>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:fais@example.com">fais@example.com</a></p>
+                <p>Phone: <a href="tel:+621234567890">+62 123 4567 890</a></p>
+                <p>Location: Indramayu, Indonesia</p>  <!-- Updated location -->
+                <p>LinkedIn: <a href="https://linkedin.com/in/fais" target="_blank">linkedin.com/in/fais</a></p>
+                <p>GitHub: <a href="https://github.com/fais" target="_blank">github.com/fais</a></p>
+            </div>
+        </header>
+
+        <section class="section" id="summary">
+            <h2 class="neon-header">Professional Summary</h2>
+            <p>A highly skilled and motivated professional with over 10 years of experience in software development, specializing in web technologies and user experience design. Passionate about creating innovative solutions that drive business growth and enhance user satisfaction. Proven track record in leading teams and delivering projects on time and within budget.</p>
+        </section>
+
+        <section class="section" id="experience">
+            <h2 class="neon-header">Work Experience</h2>
+            <ul>
+                <li>
+                    <strong>Senior Software Engineer</strong> - Tech Innovations Inc., Jakarta (2020 - Present)
+                    <p>Led the development of scalable web applications using React, Node.js, and AWS. Managed a team of 5 developers, resulting in a 30% increase in project efficiency.</p>
+                </li>
+                <li>
+                    <strong>Full Stack Developer</strong> - Digital Solutions Ltd., Bandung (2015 - 2020)
+                    <p>Designed and implemented full-stack solutions for e-commerce platforms. Optimized database queries, reducing load times by 40%.</p>
+                </li>
+                <li>
+                    <strong>Junior Developer</strong> - Startup Hub, Surabaya (2013 - 2015)
+                    <p>Contributed to the development of mobile-responsive websites and assisted in debugging and testing phases.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section" id="education">
+            <h2 class="neon-header">Education</h2>
+            <ul>
+                <li>
+                    <strong>Bachelor of Computer Science</strong> - University of Indonesia, Jakarta (2009 - 2013)
+                    <p>Graduated with Honors, GPA: 3.8/4.0</p>
+                </li>
+                <li>
+                    <strong>High School Diploma</strong> - SMA Negeri 1 Jakarta (2006 - 2009)
+                    <p>Focus on Science and Technology</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section" id="skills">
+            <h2 class="neon-header">Skills</h2>
+            <div class="skills-list">
+                <span class="skill">JavaScript</span>
+                <span class="skill">Python</span>
+                <span class="skill">Assembly</span>  <!-- Updated skills as requested -->
+            </div>
+        </section>
+
+        <section class="section" id="certifications">
+            <h2 class="neon-header">Certifications</h2>
+            <ul>
+                <li>AWS Certified Developer - Associate (2022)</li>
+                <li>Google Professional Data Engineer (2021)</li>
+                <li>Certified Scrum Master (CSM) (2019)</li>
+            </ul>
+        </section>
+
+        <section class="section" id="projects">
+            <h2 class="neon-header">Projects</h2>
+            <ul>
+                <li>
+                    <strong>E-Commerce Platform</strong>
+                    <p>Developed a full-featured online store with payment integration and user authentication. Technologies: React, Express, MongoDB.</p>
+                </li>
+                <li>
+                    <strong>Portfolio Website</strong>
+                    <p>Created a personal portfolio showcasing projects with neon-themed design. Technologies: HTML, CSS, JavaScript.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section" id="languages">
+            <h2 class="neon-header">Languages</h2>
+            <ul>
+                <li>Indonesian - Native</li>
+                <li>English - Fluent</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
