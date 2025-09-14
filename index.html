@@ -3,53 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fais CV - Professional Resume</title>
+    <title>Fais CV - Junior Developer</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Just some basic styles for the body */
+        /* Smooth scrolling for UX */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Body with improved color scheme */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;  /* Dark bg for that neon vibe */
-            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            background-color: #0d1117; /* GitHub-inspired dark blue */
+            color: #c9d1d9;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
+            transition: background-color 0.3s, color 0.3s; /* For theme toggle */
         }
 
-        /* Container to keep things centered */
+        /* Light mode */
+        body.light-mode {
+            background-color: #f6f8fa;
+            color: #24292e;
+        }
+
+        body.light-mode .container {
+            background-color: #ffffff;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .neon-text {
+            color: #0366d6;
+            text-shadow: none;
+        }
+
+        body.light-mode .neon-header {
+            color: #d73a49;
+            text-shadow: none;
+        }
+
+        body.light-mode .skill {
+            box-shadow: 0 0 8px #28a745;
+        }
+
+        body.light-mode .download-btn {
+            background-color: #0366d6;
+            color: #ffffff;
+            box-shadow: 0 0 10px #0366d6;
+        }
+
+        body.light-mode .download-btn:hover {
+            background-color: #d73a49;
+            box-shadow: 0 0 15px #d73a49;
+        }
+
+        body.light-mode .contact-form {
+            background-color: #f6f8fa;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .contact-form input,
+        body.light-mode .contact-form textarea {
+            background-color: #ffffff;
+            border: 1px solid #0366d6;
+            color: #24292e;
+        }
+
+        body.light-mode .contact-form button {
+            background-color: #d73a49;
+            box-shadow: 0 0 10px #d73a49;
+        }
+
+        body.light-mode .contact-form button:hover {
+            background-color: #0366d6;
+            box-shadow: 0 0 15px #0366d6;
+        }
+
+        body.light-mode footer {
+            background-color: #f6f8fa;
+            color: #24292e;
+            border-top: 1px solid #0366d6;
+        }
+
+        /* Container with softer shadows */
         .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);  /* A little glow effect */
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: #161b22;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(3, 102, 214, 0.3); /* Softer blue glow */
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-        /* Neon text for headers */
+        /* Toned-down neon */
         .neon-text {
-            color: #00ffff;  /* Cyan color */
-            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            color: #58a6ff;
+            text-shadow: 0 0 3px #58a6ff, 0 0 6px #58a6ff;
         }
 
         .neon-header {
-            color: #ff00ff;  /* Magenta for section headers */
-            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+            color: #f85149;
+            text-shadow: 0 0 3px #f85149, 0 0 6px #f85149;
         }
 
         h1, h2 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 3.2em;
             text-align: center;
         }
 
         h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid #00ffff;
-            padding-bottom: 5px;
-            margin-top: 30px;
+            font-size: 2em;
+            border-bottom: 2px solid #58a6ff;
+            padding-bottom: 8px;
+            margin-top: 40px;
         }
 
         ul {
@@ -58,133 +133,377 @@
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #58a6ff;
+            position: absolute;
+            left: 0;
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .contact-info {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
+            font-size: 1.1em;
         }
 
         .contact-info p {
-            margin: 5px 0;
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #58a6ff;
         }
 
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .skill {
-            background-color: #333;
-            padding: 5px 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px #00ff00;  /* Green glow for skills */
+            background-color: #21262d;
+            padding: 8px 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 8px #3fb950;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
         }
 
         .profile-pic {
             display: block;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            box-shadow: 0 0 20px #00ffff;  /* Glow on the pic */
+            border: 3px solid #58a6ff;
+            box-shadow: 0 0 25px #58a6ff;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            box-shadow: 0 0 35px #f85149;
+            transform: rotate(5deg); /* Fun hover animation */
         }
 
         a {
-            color: #00ffff;
+            color: #58a6ff;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            text-shadow: 0 0 10px #00ffff;
+            color: #f85149;
         }
 
-        /* Navbar styles */
+        /* Navbar with improved spacing */
         .navbar {
-            background-color: #1e1e1e;
-            padding: 10px 0;
+            background-color: #0d1117;
+            padding: 15px 0;
             text-align: center;
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(3, 102, 214, 0.2);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            transition: background-color 0.3s;
+        }
+
+        body.light-mode .navbar {
+            background-color: #f6f8fa;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .navbar a {
-            margin: 0 15px;
-            font-size: 1.2em;
-            color: #ffffff;
+            margin: 0 20px;
+            font-size: 1.3em;
+            color: #c9d1d9;
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode .navbar a {
+            color: #24292e;
         }
 
         .navbar a:hover {
-            color: #00ffff;
-            text-shadow: 0 0 5px #00ffff;
+            color: #58a6ff;
+            text-shadow: 0 0 6px #58a6ff;
+            transform: scale(1.05);
         }
 
-        /* Media query for smaller screens */
+        body.light-mode .navbar a:hover {
+            color: #0366d6;
+            text-shadow: none;
+        }
+
+        /* Download button */
+        .download-btn {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #58a6ff;
+            color: #0d1117;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 10px #58a6ff;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: fit-content;
+        }
+
+        .download-btn:hover {
+            background-color: #f85149;
+            color: #ffffff;
+            box-shadow: 0 0 15px #f85149;
+            transform: translateY(-2px);
+        }
+
+        /* Contact form */
+        .contact-form {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #21262d;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(60, 179, 113, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #161b22;
+            border: 1px solid #58a6ff;
+            color: #c9d1d9;
+            border-radius: 5px;
+            transition: background-color 0.3s, border 0.3s;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #f85149;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #f85149;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #58a6ff;
+            color: #0d1117;
+            box-shadow: 0 0 15px #58a6ff;
+            transform: translateY(-2px);
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #58a6ff;
+            color: #0d1117;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #58a6ff;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+
+        .theme-toggle:hover {
+            background-color: #f85149;
+            transform: rotate(180deg);
+        }
+
+        body.light-mode .theme-toggle {
+            background-color: #0366d6;
+            color: #ffffff;
+            box-shadow: 0 0 10px #0366d6;
+        }
+
+        body.light-mode .theme-toggle:hover {
+            background-color: #d73a49;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #f85149;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #f85149;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        body.light-mode .back-to-top {
+            background-color: #d73a49;
+            color: #ffffff;
+            box-shadow: 0 0 10px #d73a49;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            border-top: 1px solid #58a6ff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Enhanced responsive design for mobile and desktop */
         @media (max-width: 768px) {
             .container {
-                margin: 20px;
-                padding: 15px;
+                margin: 100px 15px 20px; /* Increased top margin for navbar on mobile */
+                padding: 20px;
+                max-width: 100%; /* Full width on mobile */
             }
 
             h1 {
-                font-size: 2.5em;
+                font-size: 2.5em; /* Smaller header on mobile */
             }
 
             h2 {
-                font-size: 1.5em;
+                font-size: 1.6em;
             }
 
             .profile-pic {
-                width: 120px;
-                height: 120px;
+                width: 140px;
+                height: 140px;
+            }
+
+            .navbar {
+                flex-direction: column; /* Stack navbar links vertically on mobile */
+                padding: 10px 0;
             }
 
             .navbar a {
-                display: block;
                 margin: 10px 0;
+                font-size: 1.2em;
+            }
+
+            .skills-list {
+                justify-content: center; /* Center skills on mobile */
+            }
+
+            .contact-form {
+                padding: 15px; /* Slightly less padding on mobile */
+            }
+
+            .download-btn {
+                padding: 8px 16px; /* Smaller button on mobile */
+            }
+
+            .theme-toggle, .back-to-top {
+                bottom: 15px; /* Adjust position for mobile */
+                right: 15px;
+            }
+
+            .back-to-top {
+                bottom: 75px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            /* Desktop-specific tweaks for better UX */
+            .container {
+                margin: 80px auto; /* Slightly more top margin on desktop */
+                padding: 40px; /* More padding on desktop */
+            }
+
+            h1 {
+                font-size: 3.5em; /* Larger header on desktop */
+            }
+
+            h2 {
+                font-size: 2.2em;
+            }
+
+            .profile-pic {
+                width: 200px; /* Larger pic on desktop */
+                height: 200px;
+            }
+
+            .navbar a {
+                font-size: 1.4em; /* Larger navbar text on desktop */
+            }
+
+            .skills-list {
+                gap: 15px; /* More spacing on desktop */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar added here -->
+    <!-- Navbar simplified to 3 items: Experience, Education, Contact -->
     <nav class="navbar">
-        <a href="#summary">Summary</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#projects">Projects</a>
-        <a href="#languages">Languages</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
         <header>
-            <img src="https://via.placeholder.com/150?text=Fais" alt="Profile Picture of Fais" class="profile-pic">
-            <h1 class="neon-text">Fais</h1>
+            <img src="https://avatars.githubusercontent.com/u/232198271?v=4" alt="Profile Picture of Fais" class="profile-pic">
+            <h1 class="neon-text">Fais - Junior Developer</h1>
             <div class="contact-info">
-                <p>Email: <a href="mailto:fais@example.com">fais@example.com</a></p>
-                <p>Phone: <a href="tel:+621234567890">+62 123 4567 890</a></p>
-                <p>Location: Indramayu, Indonesia</p>  <!-- Updated location -->
-                <p>LinkedIn: <a href="https://linkedin.com/in/fais" target="_blank">linkedin.com/in/fais</a></p>
-                <p>GitHub: <a href="https://github.com/fais" target="_blank">github.com/fais</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Indramayu, Indonesia</p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/faishunter" target="_blank">github.com/faishunter</a></p>
             </div>
+            <a href="https://example.com/fais-cv.pdf" class="download-btn" download>Download CV as PDF</a>
         </header>
-
-        <section class="section" id="summary">
-            <h2 class="neon-header">Professional Summary</h2>
-            <p>A highly skilled and motivated professional with over 10 years of experience in software development, specializing in web technologies and user experience design. Passionate about creating innovative solutions that drive business growth and enhance user satisfaction. Proven track record in leading teams and delivering projects on time and within budget.</p>
-        </section>
 
         <section class="section" id="experience">
             <h2 class="neon-header">Work Experience</h2>
@@ -218,45 +537,50 @@
             </ul>
         </section>
 
-        <section class="section" id="skills">
-            <h2 class="neon-header">Skills</h2>
-            <div class="skills-list">
-                <span class="skill">JavaScript</span>
-                <span class="skill">Python</span>
-                <span class="skill">Assembly</span>  <!-- Updated skills as requested -->
-            </div>
-        </section>
-
-        <section class="section" id="certifications">
-            <h2 class="neon-header">Certifications</h2>
-            <ul>
-                <li>AWS Certified Developer - Associate (2022)</li>
-                <li>Google Professional Data Engineer (2021)</li>
-                <li>Certified Scrum Master (CSM) (2019)</li>
-            </ul>
-        </section>
-
-        <section class="section" id="projects">
-            <h2 class="neon-header">Projects</h2>
-            <ul>
-                <li>
-                    <strong>E-Commerce Platform</strong>
-                    <p>Developed a full-featured online store with payment integration and user authentication. Technologies: React, Express, MongoDB.</p>
-                </li>
-                <li>
-                    <strong>Portfolio Website</strong>
-                    <p>Created a personal portfolio showcasing projects with neon-themed design. Technologies: HTML, CSS, JavaScript.</p>
-                </li>
-            </ul>
-        </section>
-
-        <section class="section" id="languages">
-            <h2 class="neon-header">Languages</h2>
-            <ul>
-                <li>Indonesian - Native</li>
-                <li>English - Fluent</li>
-            </ul>
+        <!-- Contact form -->
+        <section class="section" id="contact">
+            <h2 class="neon-header">Get in Touch</h2>
+            <form class="contact-form" action="mailto:fais@example.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Fais. All rights reserved.</p>
+    </footer>
+
+    <!-- Theme toggle button -->
+    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Theme toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const icon = document.querySelector('.theme-toggle i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        }
+
+        // Back to top
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
