@@ -1,210 +1,333 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grow a Garden Store - Roblox</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>User Persona Slide</title>
+
+<style>
+/* ===================== RESET & BASE ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ccc;
+  font-family: Arial, Calibri, sans-serif;
+}
+
+/* ===================== SLIDE CANVAS ===================== */
+.slide {
+  width: 1024px;
+  height: 768px;
+  background: #F0F0F0;
+  margin: 20px auto;
+  padding: 24px 32px;
+}
+
+/* ===================== HEADER ===================== */
+.header {
+  height: 80px;
+}
+
+.header h1 {
+  font-size: 44px;
+  font-weight: 800;
+  color: #1E3A8A;
+  text-align: left;
+}
+
+/* ===================== MAIN GRID ===================== */
+.content {
+  display: flex;
+  gap: 32px;
+  margin-top: 20px;
+  height: calc(100% - 100px);
+}
+
+/* ===================== COLUMNS ===================== */
+.left-column {
+  width: 42%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.right-column {
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===================== GENERIC BOX ===================== */
+.box {
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  padding: 16px 20px;
+}
+
+/* ===================== HEADINGS ===================== */
+.box-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2C3E50;
+}
+
+.underline-blue {
+  width: 120px;
+  height: 4px;
+  background: #3498DB;
+  margin: 6px 0 16px 0;
+}
+
+.underline-green {
+  width: 90px;
+  height: 4px;
+  background: #27AE60;
+  margin: 6px 0 16px 0;
+}
+
+/* ===================== PROFILE ===================== */
+.photo {
+  width: 100%;
+  height: 220px;
+  background: #EFF6FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #7F8C8D;
+  margin-bottom: 20px;
+}
+
+.profile-table {
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.profile-table td {
+  vertical-align: top;
+  padding-bottom: 10px;
+}
+
+.profile-label {
+  width: 140px;
+  color: #333333;
+}
+
+.profile-value {
+  font-weight: bold;
+  color: #2C3E50;
+}
+
+/* ===================== BEHAVIOUR ===================== */
+.behaviour-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.behaviour-label {
+  width: 55%;
+  font-size: 11px;
+  color: #333333;
+}
+
+.bar-container {
+  width: 30%;
+  height: 10px;
+  background: #E5E7EB;
+  margin-right: 10px;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #3498DB;
+}
+
+.behaviour-percent {
+  width: 40px;
+  text-align: right;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* ===================== DARK BOX ===================== */
+.dark {
+  background: #2C3E50;
+  border: none;
+}
+
+.dark .box-title,
+.dark p {
+  color: #FFFFFF;
+}
+
+/* ===================== BIO ===================== */
+.bio-text {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ===================== LISTS ===================== */
+.list {
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  background: #27AE60;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+/* ===================== FRUSTRATIONS ===================== */
+.frustrations {
+  background: #1E293B;
+  border: none;
+}
+
+.frustrations .box-title,
+.frustrations li {
+  color: #FFFFFF;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <div class="logo-icon">🌱</div>
-                <div class="logo-text">
-                    <h1>Grow a Garden Store</h1>
-                    <p>Premium Roblox Garden Items</p>
-                </div>
-            </div>
-            <div class="user-info">
-                <div class="robux-balance">
-                    <div class="robux-icon">R$</div>
-                    <span id="robux-amount">2,450</span>
-                </div>
-                <div class="admin-badge">ADMIN</div>
-                <div class="user-avatar">👤</div>
-            </div>
-        </header>
 
-        <nav class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('store')">🛍️ Store</button>
-            <button class="nav-tab" onclick="switchTab('admin')">⚙️ Admin Panel</button>
-            <button class="nav-tab" onclick="switchTab('users')">👥 User Management</button>
-        </nav>
+<div class="slide">
 
-        <!-- Store Tab -->
-        <div id="store-tab" class="tab-content active">
-            <div class="store-grid" id="store-items">
-                <div class="store-item">
-                    <div class="item-image">🌹</div>
-                    <div class="item-info">
-                        <h3>Premium Rose Seeds</h3>
-                        <p>Grow beautiful roses in your garden with these premium seeds</p>
-                        <div class="item-price">
-                            <div class="price"><div class="robux-icon">R$</div>150</div>
-                            <button class="buy-btn" onclick="buyItem('Premium Rose Seeds', 150)">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
+  <!-- HEADER -->
+  <div class="header">
+    <h1>User Persona</h1>
+  </div>
 
-                <div class="store-item">
-                    <div class="item-image">🌿</div>
-                    <div class="item-info">
-                        <h3>Magic Fertilizer</h3>
-                        <p>Boost your plant growth speed by 200% with this magical fertilizer</p>
-                        <div class="item-price">
-                            <div class="price"><div class="robux-icon">R$</div>200</div>
-                            <button class="buy-btn" onclick="buyItem('Magic Fertilizer', 200)">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
+  <!-- MAIN CONTENT -->
+  <div class="content">
 
-                <div class="store-item">
-                    <div class="item-image">🌻</div>
-                    <div class="item-info">
-                        <h3>Golden Sunflower</h3>
-                        <p>Rare golden sunflower that generates extra coins</p>
-                        <div class="item-price">
-                            <div class="price"><div class="robux-icon">R$</div>500</div>
-                            <button class="buy-btn" onclick="buyItem('Golden Sunflower', 500)">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
+    <!-- LEFT COLUMN -->
+    <div class="left-column">
 
-                <div class="store-item">
-                    <div class="item-image">🌳</div>
-                    <div class="item-info">
-                        <h3>Premium Garden Plot</h3>
-                        <p>Expand your garden with this premium 5x5 plot</p>
-                        <div class="item-price">
-                            <div class="price"><div class="robux-icon">R$</div>300</div>
-                            <button class="buy-btn" onclick="buyItem('Premium Garden Plot', 300)">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
+      <!-- PROFILE -->
+      <div class="box" style="flex: 1.1;">
+        <div class="photo">PHOTO</div>
+        <div class="box-title">Profile</div>
+        <div class="underline-blue"></div>
 
-                <div class="store-item">
-                    <div class="item-image">💧</div>
-                    <div class="item-info">
-                        <h3>Auto Watering System</h3>
-                        <p>Automatically waters your plants every hour</p>
-                        <div class="item-price">
-                            <div class="price"><div class="robux-icon">R$</div>750</div>
-                            <button class="buy-btn" onclick="buyItem('Auto Watering System', 750)">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
+        <table class="profile-table">
+          <tr>
+            <td class="profile-label">Nama</td>
+            <td class="profile-value">Budi Santoso</td>
+          </tr>
+          <tr>
+            <td class="profile-label">Usia</td>
+            <td class="profile-value">19 Tahun</td>
+          </tr>
+          <tr>
+            <td class="profile-label">Jenis Kelamin</td>
+            <td class="profile-value">Laki-laki</td>
+          </tr>
+          <tr>
+            <td class="profile-label">Alamat</td>
+            <td class="profile-value">Jl. Ganesha No. 10, Bandung</td>
+          </tr>
+          <tr>
+            <td class="profile-label">Status</td>
+            <td class="profile-value">Mahasiswa / Semester 3</td>
+          </tr>
+        </table>
+      </div>
 
-                <div class="store-item">
-                    <div class="item-image">🦋</div>
-                    <div class="item-info">
-                        <h3>Butterfly Attractant</h3>
-                        <p>Attract beautiful butterflies to your garden</p>
-                        <div class="item-price">
-                            <div class="price"><div class="robux-icon">R$</div>100</div>
-                            <button class="buy-btn" onclick="buyItem('Butterfly Attractant', 100)">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- BEHAVIOUR -->
+      <div class="box" style="flex: 0.9;">
+        <div class="box-title">Behaviour</div>
+        <div class="underline-blue"></div>
+
+        <div class="behaviour-item">
+          <div class="behaviour-label">Mencari E-book Gratis</div>
+          <div class="bar-container"><div class="bar-fill" style="width:90%"></div></div>
+          <div class="behaviour-percent">90%</div>
         </div>
 
-        <!-- Admin Panel Tab -->
-        <div id="admin-tab" class="tab-content">
-            <div class="admin-panel">
-                <div class="admin-title">
-                    <span>⚙️</span>
-                    <h2>Admin Panel - Add New Item</h2>
-                </div>
-                
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Item Name</label>
-                        <input type="text" id="item-name" class="form-input" placeholder="Enter item name">
-                    </div>
-                    <div class="form-group">
-                        <label>Price (Robux)</label>
-                        <input type="number" id="item-price" class="form-input" placeholder="Enter price">
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <input type="text" id="item-description" class="form-input" placeholder="Enter description">
-                    </div>
-                    <div class="form-group">
-                        <label>Item Image</label>
-                        <div class="file-upload">
-                            <input type="file" id="item-image" accept="image/*" onchange="previewImage(event)">
-                            <div class="file-upload-btn">
-                                📷 Choose Image
-                            </div>
-                        </div>
-                        <img id="image-preview" class="preview-image" style="display: none;">
-                    </div>
-                </div>
-                
-                <button class="add-item-btn" onclick="addNewItem()">
-                    ➕ Add Item to Store
-                </button>
-            </div>
+        <div class="behaviour-item">
+          <div class="behaviour-label">Membaca Sambil Coding</div>
+          <div class="bar-container"><div class="bar-fill" style="width:85%"></div></div>
+          <div class="behaviour-percent">85%</div>
         </div>
 
-        <!-- User Management Tab -->
-        <div id="users-tab" class="tab-content">
-            <div class="admin-panel">
-                <div class="admin-title">
-                    <span>👥</span>
-                    <h2>User Management</h2>
-                </div>
-                
-                <div class="user-list" id="user-list">
-                    <div class="user-item">
-                        <div class="user-details">
-                            <div class="user-avatar">👤</div>
-                            <div>
-                                <h4>GamerPro123</h4>
-                                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Level 25 | Joined: Jan 2024</p>
-                            </div>
-                        </div>
-                        <div class="user-actions">
-                            <button class="action-btn admin-btn" onclick="toggleAdmin('GamerPro123')">Make Admin</button>
-                            <button class="action-btn ban-btn" onclick="banUser('GamerPro123')">Ban User</button>
-                        </div>
-                    </div>
-
-                    <div class="user-item">
-                        <div class="user-details">
-                            <div class="user-avatar">👤</div>
-                            <div>
-                                <h4>PlantLover99</h4>
-                                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Level 18 | Joined: Mar 2024</p>
-                            </div>
-                        </div>
-                        <div class="user-actions">
-                            <button class="action-btn admin-btn" onclick="toggleAdmin('PlantLover99')">Make Admin</button>
-                            <button class="action-btn ban-btn" onclick="banUser('PlantLover99')">Ban User</button>
-                        </div>
-                    </div>
-
-                    <div class="user-item">
-                        <div class="user-details">
-                            <div class="user-avatar">👤</div>
-                            <div>
-                                <h4>GardenMaster</h4>
-                                <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Level 42 | Joined: Dec 2023</p>
-                            </div>
-                        </div>
-                        <div class="user-actions">
-                            <button class="action-btn admin-btn" onclick="toggleAdmin('GardenMaster')">Make Admin</button>
-                            <button class="action-btn ban-btn" onclick="banUser('GardenMaster')">Ban User</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="behaviour-item">
+          <div class="behaviour-label">Penggunaan Smartphone</div>
+          <div class="bar-container"><div class="bar-fill" style="width:75%"></div></div>
+          <div class="behaviour-percent">75%</div>
         </div>
+
+        <div class="behaviour-item">
+          <div class="behaviour-label">Download E-book Teknologi</div>
+          <div class="bar-container"><div class="bar-fill" style="width:95%"></div></div>
+          <div class="behaviour-percent">95%</div>
+        </div>
+      </div>
+
     </div>
 
-    <script src="main.js"></script>
-    <script src="admin.js"></script>
-    <script src="upload.js"></script>
+    <!-- RIGHT COLUMN -->
+    <div class="right-column">
+
+      <!-- BIO -->
+      <div class="box dark" style="flex: 0.7;">
+        <div class="box-title">Bio</div>
+        <div class="underline-green"></div>
+        <p class="bio-text">
+          Budi adalah mahasiswa Teknik Informatika semester 3 yang aktif dalam pembelajaran mandiri
+          menggunakan e-book untuk mempelajari pemrograman dan teknologi. Ia lebih memilih e-book
+          karena lebih ekonomis dan praktis dibanding buku cetak. Budi sering mencari e-book gratis
+          atau berlangganan platform unlimited untuk mengakses materi pembelajaran terkini.
+          Ia juga gemar berbagi referensi e-book dengan teman-teman kuliahnya.
+        </p>
+      </div>
+
+      <!-- NEEDS -->
+      <div class="box" style="flex: 0.9;">
+        <div class="box-title">Needs</div>
+        <div class="underline-blue"></div>
+
+        <ul class="list">
+          <li><div class="bullet"></div>Harga berlangganan terjangkau untuk mahasiswa</li>
+          <li><div class="bullet"></div>E-book dengan code snippet yang bisa di-copy paste</li>
+          <li><div class="bullet"></div>Fitur pencarian teks yang cepat dan akurat</li>
+          <li><div class="bullet"></div>Mode offline untuk akses tanpa internet</li>
+        </ul>
+      </div>
+
+      <!-- FRUSTRATIONS -->
+      <div class="box frustrations" style="flex: 1;">
+        <div class="box-title">Frustrations</div>
+        <div class="underline-green"></div>
+
+        <ul class="list">
+          <li><div class="bullet"></div>E-book berbayar yang terlalu mahal untuk budget mahasiswa.</li>
+          <li><div class="bullet"></div>Code snippet dalam format gambar sehingga tidak bisa di-copy paste.</li>
+          <li><div class="bullet"></div>Platform yang membatasi jumlah download e-book per bulan.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
